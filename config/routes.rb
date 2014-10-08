@@ -1,10 +1,12 @@
 Confessions::Application.routes.draw do
+  apipie
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
 
     namespace :api do
         namespace :v1 do
+            post 'update_flag' => 'posts#update_flag'
             resources :posts
             end
         end
